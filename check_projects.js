@@ -1,22 +1,24 @@
-
 const { PrismaClient } = require('@prisma/client')
 const prisma = new PrismaClient()
 
 async function main() {
-    try {
-        const count = await prisma.portfolioProject.count()
-        console.log(`Total projects: ${count}`)
-
-        const activeProjects = await prisma.portfolioProject.findMany({
-            where: { isActive: true },
-            select: { id: true, titleEn: true, isActive: true, category: true }
-        })
-        console.log('Active projects:', JSON.stringify(activeProjects, null, 2))
-    } catch (e) {
-        console.error(e)
-    } finally {
-        await prisma.$disconnect()
-    }
+    const projects = await prisma.portfolioProject.findMany({
+        select: {
+            id: true,
+            titleEn: true,
+            category: true,
+            websiteType: true,
+            isVisible: true
+        }
+    })
+    console.log('Projects:', JSON.stringify(projects, null, 2))
 }
 
 main()
+    .catch((e) => {
+        console.error(e)
+        process.exit(1)
+    })
+    .finally(async () => {
+        await prisma.$disconnect()
+    })

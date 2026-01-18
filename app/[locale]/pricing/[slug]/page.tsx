@@ -54,6 +54,7 @@ export default async function WebsiteTypePage({ params }: WebsiteTypePageProps) 
       if (defaultType) {
           websiteType = {
               ...defaultType,
+              imageUrl: null,
               createdAt: new Date(),
               updatedAt: new Date(),
           }
@@ -71,22 +72,34 @@ export default async function WebsiteTypePage({ params }: WebsiteTypePageProps) 
   let relatedProjects: any[] = []
   
   if (websiteType) {
-      // Try to match distinct project's 'websiteType' field with this type's title or slug
-      try {
-        relatedProjects = await prisma.portfolioProject.findMany({
-            where: {
-                isVisible: true,
-                OR: [
-                    { websiteType: { contains: websiteType.titleEn, mode: 'insensitive' } },
-                    { category: { contains: websiteType.slug, mode: 'insensitive' } } // Assuming category might match slug like 'ecommerce'
-                ]
-            },
-            take: 4,
-            orderBy: { order: 'asc' }
-        })
-      } catch (e) {
-          console.error("Failed to fetch related projects:", e)
-      }
+      // 1. Try to find specifically related projects
+      // We improve matching by checking category against slug and title parts
+      const titleFirstWord = websiteType.titleEn.split(' ')[0]; // e.g. "E-commerce" from "E-commerce Website"
+      
+      relatedProjects = await prisma.portfolioProject.findMany({
+          where: {
+              isVisible: true,
+              OR: [
+                  // Match explicit websiteType field in project
+                  { websiteType: { contains: websiteType.titleEn, mode: 'insensitive' as const } },
+                  { websiteType: { contains: websiteType.slug, mode: 'insensitive' as const } },
+                  // Match category field in project
+                  { category: { equals: websiteType.slug, mode: 'insensitive' as const } as any }, // casting as any to avoid strict union issues if needed, or better:
+                  { category: { contains: websiteType.slug, mode: 'insensitive' as const } }, // Substring slug match
+                  { category: { contains: titleFirstWord, mode: 'insensitive' as const } }, // Title part match
+                  // Map specific common variations if needed
+                  ...(websiteType.slug === 'business' ? [{ category: { contains: 'Unique', mode: 'insensitive' as const } }, { category: { contains: 'Corporate', mode: 'insensitive' as const } }] : []),
+                  ...(websiteType.slug === 'one-page' ? [{ category: { contains: 'Landing', mode: 'insensitive' as const } }] : [])
+              ]
+          },
+          take: 4,
+          orderBy: { order: 'asc' }
+      })
+  }
+
+  // Handle fallback if not in DB (only for critical path if user hasn't seeded DB)
+  if (!websiteType) {
+     return notFound()
   }
 
   // Handle fallback if not in DB (only for critical path if user hasn't seeded DB)

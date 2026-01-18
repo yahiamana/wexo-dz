@@ -57,9 +57,7 @@ export default function PricingClient({ locale, translations: t, websiteTypes }:
   }
 
   const getPrice = (type: WebsiteType) => {
-    if (locale === 'ar') return formatPrice(type.priceDZD, 'DZD')
-    if (locale === 'fr') return formatPrice(type.priceEUR, 'EUR')
-    return formatPrice(type.priceUSD, 'USD')
+    return formatPrice(type.priceDZD, 'DZD')
   }
 
   return (
