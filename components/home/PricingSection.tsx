@@ -100,9 +100,7 @@ export default function PricingSection({ locale, translations, websiteTypes }: P
   ]
   
   const getPrice = (type: WebsiteType) => {
-    if (locale === 'ar') return formatPrice(type.priceDZD, 'DZD')
-    if (locale === 'fr') return formatPrice(type.priceEUR, 'EUR')
-    return formatPrice(type.priceUSD, 'USD')
+    return formatPrice(type.priceDZD, 'DZD')
   }
   
   const getFeatures = (type: WebsiteType): string[] => {
