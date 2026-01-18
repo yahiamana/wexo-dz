@@ -166,10 +166,11 @@ export default function PricingSection({ locale, translations, websiteTypes }: P
                 </div>
               )}
               
-              <Card 
-                hover 
-                className={`h-full flex flex-col ${type.isPopular ? 'ring-2 ring-blue-500 shadow-xl' : ''}`}
-              >
+              <Link href={`/${locale}/pricing/${type.slug}`} className="block h-full focus:outline-none group">
+                <Card 
+                  hover 
+                  className={`h-full flex flex-col ${type.isPopular ? 'ring-2 ring-blue-500 shadow-xl' : ''}`}
+                >
                   <div className="mb-6">
                     <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
                       {getLocalizedField(type, 'title', locale)}
@@ -203,16 +204,18 @@ export default function PricingSection({ locale, translations, websiteTypes }: P
                 </div>
                 
                 <div className="mt-8">
-                  <Link href={`/${locale}/contact`} className="block">
+                  <div className="w-full">
                     <Button 
                       variant={type.isPopular ? 'primary' : 'outline'} 
-                      className="w-full"
+                      className="w-full group-hover:bg-blue-600 group-hover:text-white transition-colors pointer-events-none"
+                      as="span"
                     >
                       {translations.pricing.cta}
                     </Button>
-                  </Link>
+                  </div>
                 </div>
               </Card>
+              </Link>
             </motion.div>
           ))}
         </div>

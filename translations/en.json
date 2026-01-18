@@ -47,7 +47,14 @@
     "popular": "Most Popular",
     "features": "What's Included",
     "cta": "Request Quote",
-    "customNote": "Need something custom? Contact us for a personalized quote."
+    "customNote": "Need something custom? Contact us for a personalized quote.",
+    "request": {
+      "title": "Request This Website",
+      "subtitle": "Fill the form and we will contact you soon",
+      "submit": "Submit Request",
+      "success": "Request received successfully!",
+      "error": "Something went wrong."
+    }
   },
   "portfolio": {
     "title": "Our Work",

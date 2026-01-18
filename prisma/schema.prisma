@@ -60,6 +60,7 @@ model WebsiteType {
   priceEUR   Float
   priceDZD   Float
   icon       String
+  imageUrl   String?
   isPopular  Boolean  @default(false)
   order      Int      @default(0)
   isActive   Boolean  @default(true)

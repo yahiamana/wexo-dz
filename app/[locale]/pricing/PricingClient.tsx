@@ -63,7 +63,7 @@ export default function PricingClient({ locale, translations: t, websiteTypes }:
   }
 
   return (
-    <div className="pt-20">
+    <div className="pt-32">
       {/* Hero */}
       <section className="py-24 relative overflow-hidden transition-colors duration-300">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-orange-50 dark:from-slate-900 dark:via-slate-950 dark:to-slate-900" />
@@ -113,6 +113,7 @@ export default function PricingClient({ locale, translations: t, websiteTypes }:
                   </div>
                 )}
                 
+                <Link href={`/${locale}/pricing/${type.slug}`} className="block h-full focus:outline-none group">
                 <Card 
                   hover 
                   className={`h-full flex flex-col ${type.isPopular ? 'ring-2 ring-blue-500 shadow-xl' : ''}`}
@@ -146,17 +147,19 @@ export default function PricingClient({ locale, translations: t, websiteTypes }:
                   </div>
                   
                   <div className="mt-8">
-                    <Link href={`/${locale}/contact`} className="block">
+                    <div className="w-full">
                       <Button 
                         variant={type.isPopular ? 'primary' : 'outline'} 
-                        className="w-full gap-2"
+                        className="w-full gap-2 group-hover:bg-blue-600 group-hover:text-white transition-colors pointer-events-none"
+                        as="span"
                       >
                         {t.pricing.cta}
                         <ArrowRight className="w-4 h-4" />
                       </Button>
-                    </Link>
+                    </div>
                   </div>
                 </Card>
+                </Link>
               </motion.div>
             ))}
           </div>

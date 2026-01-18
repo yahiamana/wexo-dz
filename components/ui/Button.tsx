@@ -7,10 +7,11 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'secondary' | 'outline' | 'ghost'
   size?: 'sm' | 'md' | 'lg'
   isLoading?: boolean
+  as?: React.ElementType
 }
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant = 'primary', size = 'md', isLoading, children, disabled, ...props }, ref) => {
+  ({ className, variant = 'primary', size = 'md', isLoading, children, disabled, as: Component = 'button', ...props }, ref) => {
     const baseStyles = 'inline-flex items-center justify-center font-medium transition-all duration-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed'
     
     const variants = {
@@ -27,7 +28,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     }
     
     return (
-      <button
+      <Component
         ref={ref}
         className={cn(baseStyles, variants[variant], sizes[size], className)}
         disabled={disabled || isLoading}
@@ -40,7 +41,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           </svg>
         ) : null}
         {children}
-      </button>
+      </Component>
     )
   }
 )
