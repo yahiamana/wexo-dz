@@ -1,36 +1,97 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# WEXO DZ Portfolio
+
+A professional, multilingual portfolio website for WEXO DZ with a full admin panel.
+
+## Features
+
+- 🌍 **Multilingual** - English, French, and Arabic with RTL support
+- 🎨 **Modern Design** - Clean, professional, and responsive
+- 🔐 **Admin Panel** - Full CRUD for all content
+- 📱 **Mobile First** - Perfect experience on all devices
+- 🚀 **Fast** - Optimized for performance
+- 🔍 **SEO Ready** - Meta tags and structured data
+
+## Tech Stack
+
+- **Framework**: Next.js 16.1.2 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS v4
+- **Database**: PostgreSQL (Neon)
+- **ORM**: Prisma
+- **Auth**: JWT with jose
+- **Animations**: Framer Motion
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- Node.js 18+
+- PostgreSQL database (Neon recommended)
+
+### Installation
+
+1. Clone the repository
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Create a `.env` file based on `.env.example`:
+   ```env
+   DATABASE_URL="postgresql://..."
+   JWT_SECRET="your-secret-key"
+   NEXT_PUBLIC_SITE_URL="http://localhost:3000"
+   ```
+
+4. Push the database schema:
+   ```bash
+   npm run db:push
+   ```
+
+5. Seed the database:
+   ```bash
+   npm run db:seed
+   ```
+
+6. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+### Admin Access
+
+After seeding, you can access the admin panel at `/admin/login`:
+
+- **Email**: admin@wexodz.com
+- **Password**: Admin@123!
+
+**⚠️ Change these credentials in production!**
+
+## Project Structure
+
+```
+├── app/
+│   ├── [locale]/          # Public pages (en, fr, ar)
+│   ├── admin/             # Admin panel
+│   └── api/               # API routes
+├── components/
+│   ├── ui/                # Reusable UI components
+│   ├── layout/            # Layout components
+│   └── home/              # Home page sections
+├── lib/                   # Utilities
+├── prisma/                # Database schema
+└── translations/          # i18n JSON files
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Available Scripts
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run start` - Start production server
+- `npm run db:push` - Push schema to database
+- `npm run db:seed` - Seed the database
+- `npm run db:studio` - Open Prisma Studio
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## License
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Private project.
