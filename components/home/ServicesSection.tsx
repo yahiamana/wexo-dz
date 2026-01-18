@@ -22,6 +22,8 @@ interface ServicesSectionProps {
   translations: {
     services: {
       title: string
+      titleStart: string
+      titleHighlight: string
       subtitle: string
     }
     common: {
@@ -86,7 +88,7 @@ export default function ServicesSection({ locale, translations, services }: Serv
               className="max-w-2xl"
             >
               <h2 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white tracking-tight mb-6">
-                Our <span className="text-blue-600 dark:text-blue-500">Expertise</span>
+                {translations.services.titleStart} <span className="text-blue-600 dark:text-blue-500">{translations.services.titleHighlight}</span>
               </h2>
               <p className="text-xl text-gray-600 dark:text-gray-400 leading-relaxed">
                 {translations.services.subtitle}

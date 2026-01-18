@@ -60,7 +60,7 @@ export default function ProjectDetailsClient({ locale, translations, project }: 
   const features = locale === 'fr' ? project.featuresFr : locale === 'ar' ? project.featuresAr : project.featuresEn
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 pb-32">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 pb-32 pt-24 lg:pt-32">
       {/* Hero Section */}
       <div className="relative h-[60vh] lg:h-[85vh] w-full overflow-hidden bg-slate-900 flex items-end">
         {project.imageUrl && (

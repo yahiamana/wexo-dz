@@ -31,6 +31,8 @@
   },
   "services": {
     "title": "Our Services",
+    "titleStart": "Our",
+    "titleHighlight": "Expertise",
     "subtitle": "Everything you need to succeed online",
     "whyTitle": "Why Your Business Needs a Professional Website",
     "whyDesc": "In today's digital world, your website is often the first impression customers have of your business. A professional website builds trust, attracts new customers, and helps you grow.",

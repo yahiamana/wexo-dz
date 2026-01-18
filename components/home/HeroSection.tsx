@@ -35,7 +35,7 @@ export default function HeroSection({ locale, translations }: HeroSectionProps) 
          <div className="absolute bottom-[10%] left-[-5%] w-[400px] h-[400px] bg-gradient-to-tr from-orange-400/10 to-pink-400/10 dark:from-orange-500/5 dark:to-pink-500/5 rounded-full blur-2xl" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-24 sm:pt-32 pb-12 sm:pb-16 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-32 sm:pt-40 pb-12 sm:pb-16 relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
           {/* Left Content */}
           <div className="flex-1 text-center lg:text-left">
