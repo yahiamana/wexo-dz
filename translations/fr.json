@@ -1,0 +1,142 @@
+{
+    "nav": {
+        "home": "Accueil",
+        "services": "Services",
+        "pricing": "Tarifs",
+        "portfolio": "Nos Réalisations",
+        "testimonials": "Témoignages",
+        "contact": "Contact"
+    },
+    "hero": {
+        "title": "Des Sites Web Professionnels Qui Développent Votre Entreprise",
+        "subtitle": "Nous créons des sites web beaux, rapides et efficaces qui aident votre entreprise à se démarquer en ligne. Aucune connaissance technique requise - nous nous occupons de tout.",
+        "cta": "Obtenez Votre Site",
+        "secondaryCta": "Voir Nos Réalisations",
+        "availableBadge": "Disponible pour nouveaux projets",
+        "mainTitleStart": "Nous créons",
+        "mainTitleHighlight": "des expériences numériques",
+        "mainTitleEnd": "qui comptent.",
+        "resultsLabel": "Résultats",
+        "liveStatusLabel": "Statut Live",
+        "topNotchWork": "Travail impeccable !"
+    },
+    "cta": {
+        "readyToStart": "Prêt à démarrer votre projet ?"
+    },
+    "trust": {
+        "experience": "Années d'Expérience",
+        "projects": "Projets Réalisés",
+        "clients": "Clients Satisfaits",
+        "support": "Support 24/7"
+    },
+    "services": {
+        "title": "Nos Services",
+        "subtitle": "Tout ce dont vous avez besoin pour réussir en ligne",
+        "whyTitle": "Pourquoi Votre Entreprise a Besoin d'un Site Web Professionnel",
+        "whyDesc": "Dans le monde numérique d'aujourd'hui, votre site web est souvent la première impression que les clients ont de votre entreprise. Un site professionnel renforce la confiance, attire de nouveaux clients et vous aide à grandir.",
+        "howTitle": "Comment Nous Travaillons",
+        "howDesc": "Nous combinons une technologie IA de pointe avec l'expertise humaine pour livrer des sites web époustouflants plus rapidement et à moindre coût que les agences traditionnelles.",
+        "cta": "Commencez Aujourd'hui"
+    },
+    "pricing": {
+        "title": "Types de Sites & Tarifs",
+        "subtitle": "Choisissez le site parfait pour votre entreprise",
+        "startingAt": "À partir de",
+        "popular": "Le Plus Populaire",
+        "features": "Ce Qui Est Inclus",
+        "cta": "Demander un Devis",
+        "customNote": "Besoin de quelque chose de personnalisé ? Contactez-nous pour un devis sur mesure."
+    },
+    "portfolio": {
+        "title": "Nos Réalisations",
+        "subtitle": "Des sites web que nous avons créés pour des entreprises comme la vôtre",
+        "viewProject": "Voir le Projet",
+        "viewLive": "Visiter le Site",
+        "viewAllProjects": "Voir Tous les Projets",
+        "sectionBadge": "Nos Réalisations",
+        "all": "Tous",
+        "categories": {
+            "E-commerce": "E-commerce",
+            "Corporate": "Entreprise",
+            "Portfolio": "Portfolio",
+            "Landing Page": "Page d'atterrissage",
+            "WebApp": "Application Web",
+            "MobileApp": "Application Mobile",
+            "Other": "Autre"
+        },
+        "projectCTA": {
+            "title": "Vous démarrez un nouveau projet ?",
+            "subtitle": "Nous pouvons offrir ce niveau de qualité pour votre entreprise.",
+            "button": "Obtenir un devis"
+        },
+        "details": {
+            "backToProjects": "Retour aux Projets",
+            "aboutProject": "À propos du Projet",
+            "challenge": "Le Défi",
+            "solution": "La Solution",
+            "keyResults": "Résultats Clés",
+            "gallery": "Galerie du Projet",
+            "projectInfo": "Informations du Projet",
+            "client": "Mon Client",
+            "industry": "Secteur",
+            "type": "Type de Projet",
+            "timeline": "Durée",
+            "technologies": "Technologies",
+            "notSpecified": "Non spécifié",
+            "keyFeatures": "Fonctionnalités Clés"
+        }
+    },
+    "testimonials": {
+        "title": "Ce Que Disent Nos Clients",
+        "subtitle": "Des retours authentiques d'entreprises réelles",
+        "badge": "Histoires de Succès"
+    },
+    "contact": {
+        "title": "Contactez-Nous",
+        "subtitle": "Prêt à démarrer votre projet ? Envoyez-nous un message et nous vous répondrons dans les 24 heures.",
+        "form": {
+            "name": "Votre Nom",
+            "email": "Adresse Email",
+            "phone": "Numéro de Téléphone",
+            "business": "Type d'Entreprise",
+            "message": "Votre Message",
+            "submit": "Envoyer le Message",
+            "sending": "Envoi en cours...",
+            "success": "Message envoyé avec succès ! Nous vous répondrons bientôt.",
+            "error": "Une erreur s'est produite. Veuillez réessayer."
+        },
+        "info": {
+            "title": "Informations de Contact",
+            "email": "Email",
+            "phone": "Téléphone",
+            "location": "Adresse"
+        }
+    },
+    "footer": {
+        "description": "Nous créons des sites web professionnels qui aident les entreprises à se développer en ligne.",
+        "quickLinks": "Liens Rapides",
+        "contact": "Contactez-Nous",
+        "rights": "Tous droits réservés.",
+        "email": "Email",
+        "phone": "Téléphone",
+        "location": "Adresse",
+        "privacyPolicy": "Politique de Confidentialité",
+        "termsOfService": "Conditions d'Utilisation"
+    },
+    "common": {
+        "learnMore": "En Savoir Plus",
+        "getStarted": "Commencer",
+        "viewAll": "Voir Tout",
+        "loading": "Chargement...",
+        "error": "Erreur",
+        "success": "Succès",
+        "back": "Retour",
+        "next": "Suivant",
+        "submit": "Envoyer",
+        "cancel": "Annuler",
+        "save": "Enregistrer",
+        "delete": "Supprimer",
+        "edit": "Modifier",
+        "add": "Ajouter"
+    }
+}
