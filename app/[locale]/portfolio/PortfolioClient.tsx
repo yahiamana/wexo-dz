@@ -23,28 +23,42 @@ interface Project {
   websiteType?: string | null
 }
 
+interface Category {
+  id: string
+  slug: string
+  nameEn: string
+  nameFr: string
+  nameAr: string
+}
+
 interface PortfolioClientProps {
   locale: Locale
   translations: any
   projects: Project[]
+  categories: Category[]
 }
 
-const CATEGORIES = ['all', 'E-commerce', 'Corporate', 'Portfolio', 'Landing Page', 'WebApp', 'MobileApp'] as const
-type Category = typeof CATEGORIES[number]
-
-export default function PortfolioClient({ locale, translations, projects }: PortfolioClientProps) {
-  const [activeCategory, setActiveCategory] = useState<Category>('all')
+export default function PortfolioClient({ locale, translations, projects, categories = [] }: PortfolioClientProps) {
+  const [activeCategory, setActiveCategory] = useState<string>('all')
   const [searchQuery, setSearchQuery] = useState('')
+
+  // Get localized category name
+  const getCategoryName = (cat: Category) => {
+    if (locale === 'ar') return cat.nameAr
+    if (locale === 'fr') return cat.nameFr
+    return cat.nameEn
+  }
 
   // Filter projects
   const filteredProjects = projects.filter(project => {
-    // Category filter
+    // Category filter - match by slug or name
     const matchesCategory = activeCategory === 'all' || 
                            project.category?.toLowerCase() === activeCategory.toLowerCase() ||
-                           (activeCategory === 'WebApp' && project.category?.toLowerCase().includes('web')) ||
-                           (activeCategory === 'Landing Page' && project.category?.toLowerCase().includes('landing'))
+                           categories.some(c => c.slug === activeCategory && 
+                             (project.category?.toLowerCase().includes(c.nameEn.toLowerCase()) ||
+                              project.category?.toLowerCase().includes(c.slug.toLowerCase())))
 
-    // Search filter (naive)
+    // Search filter
     const title = locale === 'fr' ? project.titleFr : locale === 'ar' ? project.titleAr : project.titleEn
     const matchesSearch = title.toLowerCase().includes(searchQuery.toLowerCase())
     
@@ -85,18 +99,32 @@ export default function PortfolioClient({ locale, translations, projects }: Port
             transition={{ duration: 0.5, delay: 0.1 }}
             className="flex flex-wrap justify-center gap-3 p-1.5 bg-slate-100/80 dark:bg-slate-900/80 backdrop-blur-sm rounded-full border border-slate-200 dark:border-slate-800"
           >
-            {CATEGORIES.map((category) => (
+            {/* "All" button */}
+            <button
+              onClick={() => setActiveCategory('all')}
+              className={`
+                px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300
+                ${activeCategory === 'all' 
+                  ? 'bg-white dark:bg-slate-800 text-slate-900 dark:text-white shadow-sm scale-105' 
+                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-white/50 dark:hover:bg-slate-800/50'}
+              `}
+            >
+              {translations.common?.all || 'All'}
+            </button>
+            
+            {/* Dynamic categories from DB */}
+            {categories.map((category) => (
               <button
-                key={category}
-                onClick={() => setActiveCategory(category)}
+                key={category.id}
+                onClick={() => setActiveCategory(category.slug)}
                 className={`
                   px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300
-                  ${activeCategory === category 
+                  ${activeCategory === category.slug 
                     ? 'bg-white dark:bg-slate-800 text-slate-900 dark:text-white shadow-sm scale-105' 
                     : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-white/50 dark:hover:bg-slate-800/50'}
                 `}
               >
-                {category === 'all' ? translations.common?.all || 'All' : translations.portfolio.categories[category] || category}
+                {getCategoryName(category)}
               </button>
             ))}
           </motion.div>

@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Mail, Phone, MapPin, Send, CheckCircle, AlertCircle, Sparkles } from 'lucide-react'
 import Card from '@/components/ui/Card'
@@ -8,6 +8,14 @@ import Button from '@/components/ui/Button'
 import Input from '@/components/ui/Input'
 import { Textarea, Select } from '@/components/ui/Input'
 import { type Locale } from '@/lib/i18n'
+
+interface Category {
+  id: string
+  slug: string
+  nameEn: string
+  nameFr: string
+  nameAr: string
+}
 
 interface ContactClientProps {
   locale: Locale
@@ -46,13 +54,33 @@ export default function ContactClient({ locale, translations: t }: ContactClient
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+  const [categories, setCategories] = useState<Category[]>([])
+  
+  useEffect(() => {
+    fetchCategories()
+  }, [])
+
+  const fetchCategories = async () => {
+    try {
+      const res = await fetch('/api/categories')
+      if (res.ok) {
+        const data = await res.json()
+        setCategories(data)
+      }
+    } catch (e) {
+      console.error('Failed to fetch categories', e)
+    }
+  }
+
+  const getCategoryName = (cat: Category) => {
+    if (locale === 'ar') return cat.nameAr
+    if (locale === 'fr') return cat.nameFr
+    return cat.nameEn
+  }
   
   const businessTypes = [
     { value: '', label: locale === 'ar' ? 'اختر نوع العمل' : locale === 'fr' ? 'Sélectionnez le type' : 'Select business type' },
-    { value: 'restaurant', label: locale === 'ar' ? 'مطعم / مقهى' : locale === 'fr' ? 'Restaurant / Café' : 'Restaurant / Café' },
-    { value: 'retail', label: locale === 'ar' ? 'متجر / تجزئة' : locale === 'fr' ? 'Magasin / Commerce' : 'Retail / Shop' },
-    { value: 'professional', label: locale === 'ar' ? 'محترف (طبيب، محامي)' : locale === 'fr' ? 'Professionnel (Médecin, Avocat)' : 'Professional (Doctor, Lawyer)' },
-    { value: 'startup', label: locale === 'ar' ? 'شركة ناشئة' : locale === 'fr' ? 'Startup' : 'Startup' },
+    ...categories.map(cat => ({ value: cat.slug, label: getCategoryName(cat) })),
     { value: 'other', label: locale === 'ar' ? 'آخر' : locale === 'fr' ? 'Autre' : 'Other' },
   ]
   

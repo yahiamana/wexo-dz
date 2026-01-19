@@ -28,8 +28,17 @@ interface Project {
   featuresEn?: string[]
 }
 
+interface Category {
+  id: string
+  slug: string
+  nameEn: string
+  nameFr: string
+  nameAr: string
+}
+
 export default function PortfolioPage() {
   const [projects, setProjects] = useState<Project[]>([])
+  const [categories, setCategories] = useState<Category[]>([])
   const [isLoading, setIsLoading] = useState(true)
   
   // Modal State
@@ -75,6 +84,7 @@ export default function PortfolioPage() {
 
   useEffect(() => {
     fetchProjects()
+    fetchCategories()
   }, [])
 
   const fetchProjects = async () => {
@@ -83,6 +93,15 @@ export default function PortfolioPage() {
       if (res.ok) setProjects(await res.json())
     } finally {
       setIsLoading(false)
+    }
+  }
+
+  const fetchCategories = async () => {
+    try {
+      const res = await fetch('/api/categories')
+      if (res.ok) setCategories(await res.json())
+    } catch (e) {
+      console.error('Failed to fetch categories', e)
     }
   }
 
@@ -337,12 +356,7 @@ export default function PortfolioPage() {
                         onChange={(e) => setFormData(prev => ({ ...prev, category: e.target.value }))}
                         options={[
                           { value: '', label: 'Select...' },
-                          { value: 'E-commerce', label: 'E-commerce' },
-                          { value: 'Corporate', label: 'Corporate' },
-                          { value: 'SaaS', label: 'SaaS' },
-                          { value: 'Business', label: 'Business' },
-                          { value: 'Real Estate', label: 'Real Estate' },
-                          { value: 'One Page', label: 'One Page' },
+                          ...categories.map(cat => ({ value: cat.slug, label: cat.nameEn }))
                         ]}
                       />
                       <Input

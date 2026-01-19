@@ -9,6 +9,7 @@ import {
   Briefcase, 
   FolderOpen, 
   MessageSquare, 
+  Folder,
   LogOut,
   X
 } from 'lucide-react'
@@ -23,6 +24,7 @@ const NAV_ITEMS = [
   { label: 'Total Contacts', href: '/admin/contacts', icon: Users },
   { label: 'Active Services', href: '/admin/services', icon: Briefcase },
   { label: 'Projects', href: '/admin/portfolio', icon: FolderOpen },
+  { label: 'Categories', href: '/admin/categories', icon: Folder },
   { label: 'Testimonials', href: '/admin/testimonials', icon: MessageSquare },
 ]
 

@@ -25,18 +25,29 @@ async function getProjects() {
   }
 }
 
+async function getCategories() {
+  try {
+    return await prisma.category.findMany({
+      where: { isActive: true },
+      orderBy: { order: 'asc' },
+    })
+  } catch {
+    return []
+  }
+}
+
 export default async function PortfolioPage({ params }: PortfolioPageProps) {
   const { locale } = await params
   const t = translations[locale as Locale] || translations.en
   const projects = await getProjects()
-  
-  const displayProjects = projects
+  const categories = await getCategories()
   
   return (
     <PortfolioClient 
       locale={locale as Locale} 
       translations={t} 
-      projects={displayProjects}
+      projects={projects}
+      categories={categories}
     />
   )
 }
