@@ -2,16 +2,20 @@ import { NextRequest, NextResponse } from 'next/server'
 import prisma from '@/lib/db'
 import { verifyToken, getTokenFromCookies } from '@/lib/auth'
 import { z } from 'zod'
-import DOMPurify from 'isomorphic-dompurify'
 import { rateLimit } from '@/lib/rate-limit'
 
 const contactSchema = z.object({
-  name: z.string().min(1, 'Name is required'),
+  name: z.string().min(1, 'Name is required').max(200),
   email: z.string().email().optional().or(z.literal('')),
-  phone: z.string().optional(),
-  businessType: z.string().optional(),
-  message: z.string().min(1, 'Message is required'),
+  phone: z.string().max(50).optional(),
+  businessType: z.string().max(100).optional(),
+  message: z.string().min(1, 'Message is required').max(5000),
 })
+
+// Basic sanitization - strip HTML tags
+function sanitize(str: string): string {
+  return str.replace(/<[^>]*>/g, '').trim()
+}
 
 // POST - Create new contact message (public)
 export async function POST(request: NextRequest) {
@@ -27,9 +31,9 @@ export async function POST(request: NextRequest) {
     const data = contactSchema.parse(body)
     
     // Sanitize input
-    const cleanMessage = DOMPurify.sanitize(data.message)
-    const cleanName = DOMPurify.sanitize(data.name)
-    const cleanEmail = data.email ? DOMPurify.sanitize(data.email) : null
+    const cleanMessage = sanitize(data.message)
+    const cleanName = sanitize(data.name)
+    const cleanEmail = data.email ? sanitize(data.email) : null
     
     const contact = await prisma.contactMessage.create({
       data: {
