@@ -12,6 +12,8 @@ import en from '@/translations/en.json'
 import fr from '@/translations/fr.json'
 import ar from '@/translations/ar.json'
 
+export const dynamic = 'force-dynamic'
+
 const translations = { en, fr, ar }
 
 interface HomePageProps {
