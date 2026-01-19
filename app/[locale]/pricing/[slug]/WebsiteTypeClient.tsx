@@ -117,9 +117,14 @@ export default function WebsiteTypeClient({ locale, translations, websiteType, r
                    </div>
                 </div>
 
-                {/* Form Section */}
-                <div id="request-form">
-                   <RequestForm locale={locale} translations={translations} websiteType={title} />
+                {/* CTA Section */}
+                <div className="mt-12">
+                   <Link href={`/${locale}/contact`}>
+                     <Button size="lg" className="w-full gap-2">
+                       {translations.pricing.cta}
+                       <ArrowRight className="w-5 h-5" />
+                     </Button>
+                   </Link>
                 </div>
               </motion.div>
             </div>
