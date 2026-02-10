@@ -52,7 +52,12 @@ export async function PATCH(
     
     const contact = await prisma.contactMessage.update({
       where: { id },
-      data: { isRead: body.isRead ?? true },
+      data: { 
+        isRead: body.isRead,
+        status: body.status,
+        priority: body.priority,
+        adminNotes: body.adminNotes,
+      },
     })
     
     return NextResponse.json(contact)

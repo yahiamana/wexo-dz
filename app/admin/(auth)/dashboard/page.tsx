@@ -63,13 +63,13 @@ export default function AdminDashboard() {
   return (
     <div className="space-y-8 animate-in fade-in duration-500">
       <PageHeader 
-        title="Dashboard" 
-        subtitle="Welcome back! Here's what's happening today."
+        title="Sales Intelligence" 
+        subtitle="Manage leads, solutions, and strategic impact logs."
       />
       
       {isLoading ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {[...Array(5)].map((_, i) => (
+          {[...Array(4)].map((_, i) => (
             <div key={i} className="h-32 bg-gray-200 rounded-2xl animate-pulse" />
           ))}
         </div>
@@ -78,7 +78,7 @@ export default function AdminDashboard() {
           {/* Stats Grid */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}>
           <StatWidget 
-            label="Total Contacts" 
+            label="Lead Intelligence" 
             value={stats.contacts} 
             icon={Mail} 
             color="indigo"
@@ -88,7 +88,7 @@ export default function AdminDashboard() {
         
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}>
           <StatWidget 
-            label="Active Services" 
+            label="Outcome Solutions" 
             value={stats.services} 
             icon={Briefcase} 
             color="emerald"
@@ -97,7 +97,7 @@ export default function AdminDashboard() {
         
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}>
           <StatWidget 
-            label="Projects" 
+            label="Impact Log" 
             value={stats.projects} 
             icon={FolderOpen} 
             color="amber"
@@ -106,7 +106,7 @@ export default function AdminDashboard() {
         
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }}>
           <StatWidget 
-            label="Testimonials" 
+            label="Partner Trust" 
             value={stats.testimonials} 
             icon={MessageSquare} 
             color="rose"
@@ -117,13 +117,13 @@ export default function AdminDashboard() {
 
       {/* Quick Actions */}
       <div className="mt-16 sm:mt-20">
-        <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-8 tracking-tight">Quick Actions</h3>
+        <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-8 tracking-tight">Strategy Console</h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {[
-            { label: 'Add Project', href: '/admin/portfolio', icon: FolderOpen, color: 'bg-amber-50 text-amber-600 dark:bg-amber-900/20' },
-            { label: 'Add Service', href: '/admin/services', icon: Briefcase, color: 'bg-emerald-50 text-emerald-600 dark:bg-emerald-900/20' },
-            { label: 'View Messages', href: '/admin/contacts', icon: Mail, color: 'bg-indigo-50 text-indigo-600 dark:bg-indigo-900/20' },
-            { label: 'Update Pricing', href: '/admin/pricing', icon: DollarSign, color: 'bg-blue-50 text-blue-600 dark:bg-blue-900/20' },
+            { label: 'Log New Impact', href: '/admin/portfolio', icon: FolderOpen, color: 'bg-amber-50 text-amber-600 dark:bg-amber-900/20' },
+            { label: 'Deploy Solution', href: '/admin/services', icon: Briefcase, color: 'bg-emerald-50 text-emerald-600 dark:bg-emerald-900/20' },
+            { label: 'Analyze Intel', href: '/admin/contacts', icon: Mail, color: 'bg-indigo-50 text-indigo-600 dark:bg-indigo-900/20' },
+            { label: 'Scale Pricing', href: '/admin/pricing', icon: DollarSign, color: 'bg-blue-50 text-blue-600 dark:bg-blue-900/20' },
           ].map((action, i) => (
              <Link 
               key={action.label} 

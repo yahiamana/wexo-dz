@@ -23,10 +23,34 @@ model ContactMessage {
   name         String
   email        String?
   phone        String?
-  businessType String?
-  message      String
+  businessType String?  // Stores Level (Standard/Premium/Custom)
+  budget       String?  // Stores the DA range
+  objective    String?  // Stores the strategic goal
+  message      String   @db.Text
+  status       LeadStatus @default(NEW)
+  priority     LeadPriority @default(MEDIUM)
+  adminNotes   String?  @db.Text
   isRead       Boolean  @default(false)
   createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+enum LeadStatus {
+  NEW
+  QUALIFIED
+  STRATEGY_CALL
+  PROPOSAL_SENT
+  CLOSED_WON
+  CLOSED_LOST
+  REJECTED
+  ARCHIVED
+}
+
+enum LeadPriority {
+  LOW
+  MEDIUM
+  HIGH
+  URGENT
 }
 
 model Service {

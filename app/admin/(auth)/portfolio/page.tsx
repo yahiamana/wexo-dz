@@ -223,15 +223,15 @@ export default function PortfolioPage() {
   return (
     <div className="animate-in fade-in duration-500">
       <PageHeader 
-        title="Portfolio" 
-        subtitle="Manage your agency projects."
+        title="Impact Log" 
+        subtitle="Chronicle the strategic moves and business results delivered to partners."
       >
         <button 
           onClick={() => openModal()}
           className="flex items-center gap-2 px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg text-sm font-medium transition-colors shadow-lg shadow-indigo-600/20"
         >
           <Plus className="w-4 h-4" />
-          <span>Add Project</span>
+          <span>Log New Impact</span>
         </button>
       </PageHeader>
 

@@ -1,151 +1,206 @@
 {
   "nav": {
     "home": "Home",
-    "services": "Services",
+    "services": "Systems",
     "pricing": "Pricing",
-    "portfolio": "Our Work",
-    "testimonials": "Testimonials",
-    "contact": "Contact"
+    "portfolio": "Archive",
+    "testimonials": "Feedback",
+    "contact": "Portal"
   },
   "hero": {
-    "title": "Professional Websites That Grow Your Business",
-    "subtitle": "We create beautiful, fast, and effective websites that help your business stand out online. No technical knowledge required - we handle everything for you.",
-    "cta": "Get Your Website",
-    "secondaryCta": "View Our Work",
-    "availableBadge": "Available for new projects",
-    "mainTitleStart": "We craft",
-    "mainTitleHighlight": "digital experiences",
-    "mainTitleEnd": "that matter.",
-    "resultsLabel": "Results",
-    "liveStatusLabel": "Live Status",
-    "topNotchWork": "Top notch work!"
+    "title": "Architecting Sustainable Digital Infrastructure",
+    "subtitle": "We deploy high-performance operational systems that eliminate technical volatility for the Algerian market.",
+    "cta": "Initialize",
+    "secondaryCta": "View Experience",
+    "availableBadge": "Availability: Q1 2026",
+    "mainTitleStart": "We design",
+    "mainTitleHighlight": "infrastructure",
+    "mainTitleEnd": "for stability.",
+    "resultsLabel": "Market Results",
+    "liveStatusLabel": "Operational",
+    "topNotchWork": "Rigorous Execution"
   },
   "cta": {
-    "readyToStart": "Ready to start your project?"
+    "readyToStart": "Ready to scale your business operations?"
+  },
+  "filter": {
+    "badge": "Partnership Synchronization",
+    "title": "Mutual Alignment Check",
+    "subtitle": "To maintain structural stability, we only synchronize with partners who possess clear market intent and operational logic. Here is our ideal collaboration profile.",
+    "forWho": {
+      "title": "We are a strong fit if:",
+      "item1": "You have an established business model ready for modern scaling.",
+      "item2": "You prioritize professional engineering over generic templates.",
+      "item3": "You are looking for a reliable, long-term technical partner."
+    },
+    "notForWho": {
+      "title": "This may not be a fit if:",
+      "item1": "Your primary decision factor is the lowest possible cost rather than value.",
+      "item2": "You require a temporary or basic digital presence.",
+      "item3": "You aren't ready to invest in your digital presence as a long-term asset."
+    }
   },
   "trust": {
-    "experience": "Years of Experience",
-    "projects": "Projects Completed",
-    "clients": "Happy Clients",
-    "support": "24/7 Support"
+    "experience": "Years of Market Intelligence",
+    "projects": "High-Impact Deployments",
+    "clients": "Success Partners",
+    "support": "Consultative Support"
+  },
+  "businessReality": {
+    "title": "Structural Constraints",
+    "subtitle": "Eliminating the common points of technical failure in the Algerian business ecosystem.",
+    "item1": {
+      "title": "Architectural Latency",
+      "desc": "Platforms built without engineering depth collapse under traffic, resulting in immediate lead attrition."
+    },
+    "item2": {
+      "title": "Operational Volatility",
+      "desc": "Maintenance without a logic-first roadmap leads to infinite technical debt and project stagnation."
+    },
+    "item3": {
+      "title": "Systemic Inefficiency",
+      "desc": "Digital tools that don't synchronize with your business physics become liabilities rather than assets."
+    }
   },
   "services": {
-    "title": "Our Services",
-    "titleStart": "Our",
-    "titleHighlight": "Expertise",
-    "subtitle": "Everything you need to succeed online",
-    "whyTitle": "Why Your Business Needs a Professional Website",
-    "whyDesc": "In today's digital world, your website is often the first impression customers have of your business. A professional website builds trust, attracts new customers, and helps you grow.",
-    "howTitle": "How We Work",
-    "howDesc": "We combine cutting-edge AI technology with human expertise to deliver stunning websites faster and more affordably than traditional agencies.",
-    "cta": "Get Started Today"
+    "title": "Growth Systems",
+    "titleStart": "Engineered",
+    "titleHighlight": "Systems",
+    "subtitle": "High-availability digital infrastructure designed for market dominance. Not just code—operational leverage.",
+    "whyTitle": "Your Infrastructure: Asset or Liability?",
+    "whyDesc": "In a volatile market, your digital architecture is either a scalable engine for growth or a structural point of failure. We engineer the former.",
+    "howTitle": "Engineering Cycle",
+    "howDesc": "Deep market intelligence combined with world-class engineering precision. We don't take orders—we architect outcomes.",
+    "cta": "Initialize Strategic Audit"
   },
   "pricing": {
-    "title": "Website Types & Pricing",
-    "subtitle": "Choose the perfect website for your business",
-    "startingAt": "Starting at",
-    "popular": "Most Popular",
-    "features": "What's Included",
-    "cta": "Get In Touch",
-    "customNote": "Need something custom? Contact us for a personalized quote.",
+    "title": "Capital Allocation Frameworks",
+    "subtitle": "Strategic investment tiers synchronized with your operational stage. No generic packages.",
+    "startingAt": "Proposed Allocation",
+    "popular": "Verified Growth Tier",
+    "features": "Technical Specifications",
+    "cta": "Deploy",
+    "customNote": "For complex mult-phase infrastructure requirements, we provide bespoke allocation blueprints.",
     "request": {
-      "title": "Request This Website",
-      "subtitle": "Fill the form and we will contact you soon",
-      "submit": "Submit Request",
-      "success": "Request received successfully!",
-      "error": "Something went wrong."
+      "title": "Apply for Digital Transformation",
+      "subtitle": "Tell us about your business goals. We only work with projects where we can deliver 10x value.",
+      "submit": "Submit Application",
+      "success": "Application received. Our strategist will review your goals.",
+      "error": "Submission failed. Please try again."
     }
   },
   "portfolio": {
-    "title": "Our Work",
-    "subtitle": "Websites we've created for businesses like yours",
-    "viewProject": "View Project",
-    "viewLive": "Visit Website",
-    "viewAllProjects": "View All Projects",
-    "sectionBadge": "Our Work",
-    "all": "All",
+    "title": "Track Record",
+    "subtitle": "Documented success stories of how we address business constraints for our partners.",
+    "viewProject": "View Details",
+    "viewLive": "Visit Platform",
+    "viewAllProjects": "View More Work",
+    "sectionBadge": "Experience Log",
+    "all": "All Solutions",
     "categories": {
-      "E-commerce": "E-commerce",
-      "Corporate": "Corporate",
-      "Portfolio": "Portfolio",
-      "Landing Page": "Landing Page",
-      "WebApp": "Web Application",
-      "MobileApp": "Mobile App",
-      "Other": "Other"
+      "E-commerce": "Performance Commerce Systems",
+      "Corporate": "Professional Brand Identity",
+      "Portfolio": "Experience Showcases",
+      "Landing Page": "Growth Funnels",
+      "WebApp": "Business Management Systems",
+      "MobileApp": "High-Performance Mobile Tools",
+      "Other": "Specialized Solutions"
     },
     "projectCTA": {
-      "title": "Starting a new project?",
-      "subtitle": "We can match this level of quality for your business.",
-      "button": "Get a Quote"
+      "title": "Ready for high-impact growth?",
+      "subtitle": "We only take on 3 new partners per month to ensure elite quality.",
+      "button": "Check Availability"
     },
     "details": {
-      "backToProjects": "Back to Projects",
-      "aboutProject": "About the Project",
-      "challenge": "The Challenge",
-      "solution": "The Solution",
-      "keyResults": "Key Results",
-      "gallery": "Project Gallery",
-      "projectInfo": "Project Information",
-      "client": "My Client",
-      "industry": "Industry",
-      "type": "Project Type",
-      "timeline": "Timeline",
-      "technologies": "Technologies",
-      "notSpecified": "Not specified",
-      "keyFeatures": "Key Features"
+      "backToProjects": "Back to Impact Log",
+      "aboutProject": "Project Scope",
+      "challenge": "The Business Constraint",
+      "solution": "The Strategic Move",
+      "keyResults": "Business Impact",
+      "gallery": "System Interface",
+      "projectInfo": "Strategic Overview",
+      "client": "Partner",
+      "industry": "Market Sector",
+      "type": "System Type",
+      "timeline": "Deployment Time",
+      "technologies": "Technical Stack",
+      "notSpecified": "Proprietary",
+      "keyFeatures": "Core Capabilities"
     }
   },
   "testimonials": {
-    "title": "What Our Clients Say",
-    "subtitle": "Real feedback from real businesses",
-    "badge": "Success Stories"
+    "title": "Proven Results",
+    "subtitle": "What happened when leading businesses trusted our strategy.",
+    "badge": "Partner Feedback"
   },
   "contact": {
-    "title": "Get in Touch",
-    "subtitle": "Ready to start your project? Send us a message and we'll get back to you within 24 hours.",
+    "title": "Professional Consultation",
+    "subtitle": "We focus on high-impact partnerships. If your business is ready for a digital evolution, let's talk.",
     "form": {
-      "name": "Your Name",
-      "email": "Email Address",
-      "phone": "Phone Number",
-      "business": "Business Type",
-      "message": "Your Message",
-      "submit": "Send Message",
-      "sending": "Sending...",
-      "success": "Message sent successfully! We'll get back to you soon.",
-      "error": "Something went wrong. Please try again."
+      "name": "Full Name",
+      "email": "Work Email",
+      "phone": "Phone / WhatsApp",
+      "business": "Industry / Sector",
+      "message": "Project Goals & Current Challenges",
+      "submit": "Submit Request",
+      "sending": "Processing...",
+      "success": "Request received. We will contact you shortly.",
+      "error": "Error sending request."
     },
     "info": {
-      "title": "Contact Information",
+      "title": "Direct Contact",
       "email": "Email",
-      "phone": "Phone",
-      "location": "Location"
+      "phone": "WhatsApp Strategy",
+      "location": "Algiers HQ"
     }
   },
   "footer": {
-    "description": "We create professional websites that help businesses grow online.",
-    "quickLinks": "Quick Links",
-    "contact": "Contact Us",
-    "rights": "All rights reserved.",
+    "description": "Engineering high-performance digital systems for business dominance.",
+    "quickLinks": "Strategic Links",
+    "contact": "Contact",
+    "rights": "All rights reserved. Professional Grade.",
     "email": "Email",
-    "phone": "Phone",
-    "location": "Location",
+    "phone": "WhatsApp",
+    "location": "Algiers",
     "privacyPolicy": "Privacy Policy",
-    "termsOfService": "Terms of Service"
+    "termsOfService": "Terms of Partnership"
+  },
+  "methodology": {
+    "title": "Method",
+    "subtitle": "Engineering is the final step. Our process starts with deep business intelligence and logical architecture.",
+    "pillars": {
+      "strategy": {
+        "title": "1. Strategic Intelligence",
+        "desc": "We analyze your market, competitors, and user psychology to identify the most efficient move for your business."
+      },
+      "logic": {
+        "title": "2. Logical Architecture",
+        "desc": "Building without a blueprint is a liability. We design high-density logical flows before a single line of code is written."
+      },
+      "engineering": {
+        "title": "3. Professional Engineering",
+        "desc": "Scalable, secure code built for reliability. We treat your digital infrastructure as a mission-critical asset."
+      },
+      "scaling": {
+        "title": "4. Continuous Scaling",
+        "desc": "Deployment is just the beginning. We provide the intelligence to iterate, scale, and maintain market dominance."
+      }
+    }
   },
   "common": {
-    "learnMore": "Learn More",
-    "getStarted": "Get Started",
-    "viewAll": "View All",
-    "loading": "Loading...",
+    "learnMore": "See Roadmap",
+    "getStarted": "Appy Now",
+    "viewAll": "View All Cases",
+    "loading": "Checking Systems...",
     "error": "Error",
     "success": "Success",
     "back": "Back",
     "next": "Next",
-    "submit": "Submit",
+    "submit": "Submit Brief",
     "cancel": "Cancel",
     "save": "Save",
-    "delete": "Delete",
-    "edit": "Edit",
-    "add": "Add"
+    "delete": "Remove",
+    "edit": "Modify",
+    "add": "Deploy"
   }
 }

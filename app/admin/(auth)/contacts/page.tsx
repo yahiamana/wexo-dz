@@ -5,7 +5,7 @@ import { PageHeader } from '@/components/admin/layout/PageHeader'
 import { DataGrid } from '@/components/admin/ui/DataGrid'
 import { DashboardCard } from '@/components/admin/ui/DashboardCard'
 import { DeleteConfirmation } from '@/components/admin/DeleteConfirmation'
-import { Mail, Trash2, Eye, EyeOff, Phone, Building2, Calendar, User } from 'lucide-react'
+import { Mail, Trash2, Eye, EyeOff, Phone, Building2, Calendar, User, Zap } from 'lucide-react'
 import { format } from 'date-fns'
 import { cn } from '@/lib/utils'
 
@@ -15,7 +15,12 @@ interface Contact {
   email: string
   phone?: string | null
   businessType?: string | null
+  budget?: string | null
+  objective?: string | null
   message: string
+  status: 'NEW' | 'QUALIFIED' | 'STRATEGY_CALL' | 'PROPOSAL_SENT' | 'REJECTED' | 'ARCHIVED'
+  priority: 'LOW' | 'MEDIUM' | 'HIGH' | 'URGENT'
+  adminNotes?: string | null
   createdAt: string
   isRead: boolean
 }
@@ -62,30 +67,36 @@ export default function ContactsPage() {
     }
   }
 
-  const toggleRead = async (contact: Contact) => {
+  const updateContact = async (id: string, updates: Partial<Contact>) => {
     try {
-      const newStatus = !contact.isRead
-      const res = await fetch(`/api/contacts/${contact.id}`, {
+      const res = await fetch(`/api/contacts/${id}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ isRead: newStatus }),
+        body: JSON.stringify(updates),
       })
       
       if (res.ok) {
         setContacts(prev => prev.map(c => 
-          c.id === contact.id ? { ...c, isRead: newStatus } : c
+          c.id === id ? { ...c, ...updates } : c
         ))
-        if (selectedContact?.id === contact.id) {
-          setSelectedContact(prev => prev ? { ...prev, isRead: newStatus } : null)
+        if (selectedContact?.id === id) {
+          setSelectedContact(prev => prev ? { ...prev, ...updates } : null)
         }
       }
     } catch (error) {
-      console.error('Failed to update status', error)
+      console.error('Failed to update contact', error)
     }
   }
 
+  const toggleRead = async (contact: Contact) => {
+    updateContact(contact.id, { isRead: !contact.isRead })
+  }
+
   const getBusinessTypeLabel = (type: string | null | undefined) => {
-    if (!type) return 'General Inquiry'
+    if (!type) return 'Inquiry'
+    if (type.includes('Level:')) {
+      return type.split('|')[0].replace('Level:', '').trim()
+    }
     const types: Record<string, string> = {
       'restaurant': 'Restaurant / Café',
       'retail': 'Retail / Shop',
@@ -96,28 +107,43 @@ export default function ContactsPage() {
     return types[type] || type
   }
 
+  const getBudgetLabel = (budget: string | null | undefined) => {
+    if (!budget) return 'Not Specified'
+    const budgets: Record<string, string> = {
+      'under-10m': '< 10M DA',
+      '10m-30m': '10M - 30M DA',
+      '30m-100m': '30M - 100M DA',
+      'over-100m': '> 100M DA'
+    }
+    return budgets[budget] || budget
+  }
+
   const columns = [
     {
-      key: 'status',
-      header: 'Status',
-      className: 'w-24',
+      key: 'pipeline',
+      header: 'Pipeline',
+      className: 'w-32',
       render: (item: Contact) => (
         <span className={cn(
-          "inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium border",
-          item.isRead 
-            ? "bg-slate-50 text-slate-600 border-slate-200 dark:bg-slate-900/50 dark:text-slate-400 dark:border-slate-800"
-            : "bg-blue-50 text-blue-700 border-blue-100 dark:bg-blue-900/20 dark:text-blue-400 dark:border-blue-900/30"
+          "inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider border",
+          item.status === 'ARCHIVED' 
+            ? "bg-slate-50 text-slate-500 border-slate-200"
+            : item.status === 'QUALIFIED'
+            ? "bg-green-50 text-green-700 border-green-200"
+            : item.status === 'STRATEGY_CALL'
+            ? "bg-blue-50 text-blue-700 border-blue-200"
+            : "bg-amber-50 text-amber-700 border-amber-200"
         )}>
-          {item.isRead ? 'Read' : 'New'}
+          {item.status.replace('_', ' ')}
         </span>
       )
     },
     {
       key: 'name',
-      header: 'Contact Info',
+      header: 'Partner Info',
       render: (item: Contact) => (
         <div className="flex flex-col gap-1">
-          <div className="flex items-center gap-2 font-medium text-slate-900 dark:text-white">
+          <div className="flex items-center gap-2 font-bold text-slate-900 dark:text-white">
             {item.name}
           </div>
           <div className="flex items-center gap-2 text-xs text-slate-500">
@@ -127,19 +153,37 @@ export default function ContactsPage() {
           {item.phone && (
             <div className="flex items-center gap-2 text-xs text-slate-500">
                <Phone className="w-3 h-3" />
-               {item.phone}
+               <span className="font-medium text-slate-700 dark:text-slate-300">{item.phone}</span>
             </div>
           )}
         </div>
       )
     },
     {
+      key: 'budget',
+      header: 'Investment',
+      render: (item: Contact) => {
+        const budget = getBudgetLabel(item.budget)
+        const isHigh = item.budget === 'over-100m' || item.budget === '30m-100m'
+        return (
+          <div className="flex items-center gap-2 font-bold">
+            <span className={cn(
+              "px-2 py-1 rounded text-[10px] uppercase tracking-wider",
+              isHigh ? "bg-amber-100 text-amber-700 border border-amber-200" : "bg-slate-100 text-slate-600 border border-slate-200"
+            )}>
+              {budget}
+            </span>
+          </div>
+        )
+      }
+    },
+    {
       key: 'businessType',
-      header: 'Business Type',
+      header: 'Solution Level',
       render: (item: Contact) => (
         <div className="flex items-center gap-2 text-slate-600 dark:text-slate-300">
-          <Building2 className="w-4 h-4 text-slate-400" />
-          <span className="truncate max-w-[150px] block">
+          <Building2 className="w-4 h-4 text-blue-500" />
+          <span className="font-semibold">
             {getBusinessTypeLabel(item.businessType)}
           </span>
         </div>
@@ -241,41 +285,75 @@ export default function ContactsPage() {
                   </div>
 
                   {/* Contact Details Grid */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
                       <div className="bg-white/60 dark:bg-slate-900/60 p-4 rounded-xl border border-slate-100 dark:border-slate-800/50">
-                         <label className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1 block">Email</label>
-                         <div className="flex items-center gap-2 text-slate-700 dark:text-slate-300 font-medium">
-                            <Mail className="w-4 h-4 text-blue-500" />
-                            <a href={`mailto:${selectedContact.email}`} className="hover:underline hover:text-blue-600">
-                              {selectedContact.email || 'N/A'}
-                            </a>
+                         <label className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1 block">Expected Investment</label>
+                         <div className="flex items-center gap-2 text-slate-900 dark:text-white font-bold text-lg">
+                            <Zap className="w-4 h-4 text-amber-500" />
+                            {getBudgetLabel(selectedContact.budget)}
                          </div>
                       </div>
                       <div className="bg-white/60 dark:bg-slate-900/60 p-4 rounded-xl border border-slate-100 dark:border-slate-800/50">
-                         <label className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1 block">Phone</label>
-                         <div className="flex items-center gap-2 text-slate-700 dark:text-slate-300 font-medium">
-                            <Phone className="w-4 h-4 text-green-500" />
-                            <a href={`tel:${selectedContact.phone}`} className="hover:underline hover:text-green-600">
-                              {selectedContact.phone || 'N/A'}
-                            </a>
+                         <label className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1 block">Business Goal</label>
+                         <div className="flex items-center gap-2 text-slate-700 dark:text-slate-200 font-semibold">
+                            <Building2 className="w-4 h-4 text-blue-500" />
+                            {selectedContact.objective || 'N/A'}
                          </div>
                       </div>
-                      <div className="bg-white/60 dark:bg-slate-900/60 p-4 rounded-xl border border-slate-100 dark:border-slate-800/50 sm:col-span-2">
-                         <label className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1 block">Received On</label>
-                         <div className="flex items-center gap-2 text-slate-700 dark:text-slate-300">
-                            <Calendar className="w-4 h-4 text-slate-400" />
-                            {format(new Date(selectedContact.createdAt), 'PPPP p')}
+                      <div className="bg-white/60 dark:bg-slate-900/60 p-4 rounded-xl border border-slate-100 dark:border-slate-800/50">
+                         <label className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1 block">Quick Status</label>
+                         <div className="flex flex-wrap gap-2">
+                            {['NEW', 'QUALIFIED', 'STRATEGY_CALL', 'REJECTED'].map(s => (
+                              <button 
+                                key={s}
+                                onClick={() => updateContact(selectedContact.id, { status: s as any })}
+                                className={cn(
+                                  "px-2 py-1 rounded text-[10px] font-bold border transition-all",
+                                  selectedContact.status === s 
+                                    ? "bg-slate-900 text-white border-slate-900" 
+                                    : "bg-white text-slate-500 border-slate-200 hover:border-slate-400"
+                                )}
+                              >
+                                {s.replace('_', ' ')}
+                              </button>
+                            ))}
                          </div>
                       </div>
-                  </div>
+                      <div className="bg-white/60 dark:bg-slate-900/60 p-4 rounded-xl border border-slate-100 dark:border-slate-800/50">
+                         <label className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1 block">Urgency</label>
+                         <div className="flex gap-2">
+                            {['LOW', 'MEDIUM', 'HIGH', 'URGENT'].map(p => (
+                              <button 
+                                key={p}
+                                onClick={() => updateContact(selectedContact.id, { priority: p as any })}
+                                className={cn(
+                                  "w-6 h-6 rounded flex items-center justify-center text-[10px] font-black border transition-all",
+                                  selectedContact.priority === p 
+                                    ? p === 'URGENT' ? "bg-red-600 text-white border-red-600" : "bg-slate-900 text-white border-slate-900"
+                                    : "bg-white text-slate-400 border-slate-200 hover:border-slate-300"
+                                )}
+                                title={p}
+                              >
+                                {p.charAt(0)}
+                              </button>
+                            ))}
+                         </div>
+                      </div>
 
                   {/* Message Body */}
                   <div className="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-sm mb-8">
-                    <label className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-4 block flex items-center gap-2">
-                       Message Content
+                    <label className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-4 block flex items-center gap-2">
+                       Strategic Objective & Growth Constraints
                     </label>
-                    <p className="whitespace-pre-wrap text-slate-700 dark:text-slate-300 leading-relaxed text-lg">
-                      {selectedContact.message}
+                    <p className="whitespace-pre-wrap text-slate-800 dark:text-slate-200 leading-relaxed text-xl font-medium italic border-l-4 border-blue-500 pl-6">
+                      "{selectedContact.message}"
+                    </p>
+                  </div>
+                  
+                  {/* Strategic Note */}
+                  <div className="mb-8 p-4 bg-amber-50 dark:bg-amber-900/10 border border-amber-100 dark:border-amber-900/20 rounded-xl">
+                    <p className="text-sm text-amber-800 dark:text-amber-400 flex items-center gap-2">
+                       <Zap className="w-4 h-4" />
+                       <strong>Sales Intel:</strong> This partner is interested in <b>{getBusinessTypeLabel(selectedContact.businessType)}</b> with an investment of <b>{getBudgetLabel(selectedContact.businessType)}</b>.
                     </p>
                   </div>
                   

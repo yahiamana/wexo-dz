@@ -1,8 +1,10 @@
 import { type Locale } from '@/lib/i18n'
 import prisma from '@/lib/db'
 import HeroSection from '@/components/home/HeroSection'
+import BusinessReality from '@/components/home/BusinessReality'
+import MethodologySection from '@/components/home/MethodologySection'
+import FilterSection from '@/components/home/FilterSection'
 import ServicesSection from '@/components/home/ServicesSection'
-import PricingSection from '@/components/home/PricingSection'
 import PortfolioSection from '@/components/home/PortfolioSection'
 import TestimonialsSection from '@/components/home/TestimonialsSection'
 import CTASection from '@/components/home/CTASection'
@@ -91,15 +93,13 @@ export default async function HomePage({ params }: HomePageProps) {
     <>
       <JsonLd data={websiteSchema} />
       <HeroSection locale={locale as Locale} translations={t} />
+      <BusinessReality locale={locale as Locale} translations={t} />
+      <MethodologySection locale={locale as Locale} translations={t} />
+      <FilterSection locale={locale as Locale} translations={t} />
       <ServicesSection 
         locale={locale as Locale} 
         translations={t} 
         services={data.services} 
-      />
-      <PricingSection 
-        locale={locale as Locale} 
-        translations={t} 
-        websiteTypes={data.websiteTypes} 
       />
       <PortfolioSection 
         locale={locale as Locale} 

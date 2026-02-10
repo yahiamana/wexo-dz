@@ -4,15 +4,7 @@ import React, { useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
-import { 
-  Users, 
-  Briefcase, 
-  FolderOpen, 
-  MessageSquare, 
-  Folder,
-  LogOut,
-  X
-} from 'lucide-react'
+import { LayoutDashboard, Users, MessageSquare, FolderOpen, Briefcase, Settings, LogOut, ChevronLeft, Folder, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 interface AdminNavigationProps {
@@ -21,11 +13,11 @@ interface AdminNavigationProps {
 }
 
 const NAV_ITEMS = [
-  { label: 'Total Contacts', href: '/admin/contacts', icon: Users },
-  { label: 'Active Services', href: '/admin/services', icon: Briefcase },
-  { label: 'Projects', href: '/admin/portfolio', icon: FolderOpen },
-  { label: 'Categories', href: '/admin/categories', icon: Folder },
-  { label: 'Testimonials', href: '/admin/testimonials', icon: MessageSquare },
+  { label: 'Lead Intelligence', href: '/admin/contacts', icon: Users },
+  { label: 'Strategic Solutions', href: '/admin/services', icon: Briefcase },
+  { label: 'Experience Log', href: '/admin/portfolio', icon: FolderOpen },
+  { label: 'Market Sectors', href: '/admin/categories', icon: Folder },
+  { label: 'Partner Trust', href: '/admin/testimonials', icon: MessageSquare },
 ]
 
 export function AdminNavigation({ isOpen, onClose }: AdminNavigationProps) {

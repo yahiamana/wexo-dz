@@ -1,151 +1,198 @@
 {
     "nav": {
         "home": "Accueil",
-        "services": "Services",
+        "services": "Systèmes",
         "pricing": "Tarifs",
-        "portfolio": "Nos Réalisations",
-        "testimonials": "Témoignages",
-        "contact": "Contact"
+        "portfolio": "Archive",
+        "testimonials": "Avis",
+        "contact": "Portail"
     },
     "hero": {
-        "title": "Des Sites Web Professionnels Qui Développent Votre Entreprise",
-        "subtitle": "Nous créons des sites web beaux, rapides et efficaces qui aident votre entreprise à se démarquer en ligne. Aucune connaissance technique requise - nous nous occupons de tout.",
-        "cta": "Obtenez Votre Site",
-        "secondaryCta": "Voir Nos Réalisations",
-        "availableBadge": "Disponible pour nouveaux projets",
-        "mainTitleStart": "Nous créons",
-        "mainTitleHighlight": "des expériences numériques",
-        "mainTitleEnd": "qui comptent.",
-        "resultsLabel": "Résultats",
-        "liveStatusLabel": "Statut Live",
-        "topNotchWork": "Travail impeccable !"
+        "title": "Architecturer une Infrastructure Digitale Durable",
+        "subtitle": "Nous déployons des systèmes opérationnels de haute performance qui éliminent la volatilité technique pour le marché algérien.",
+        "cta": "Démarrer"
     },
     "cta": {
-        "readyToStart": "Prêt à démarrer votre projet ?"
+        "readyToStart": "Prêt à passer à l'échelle ?"
+    },
+    "filter": {
+        "badge": "Synchronisation de Partenariat",
+        "title": "Vérification de l'Alignement Mutuel",
+        "subtitle": "Pour maintenir la stabilité structurelle, nous ne nous synchronisons qu'avec des partenaires possédant une intention de marché claire et une logique opérationnelle.",
+        "forWho": {
+            "title": "Nous sommes faits pour collaborer si :",
+            "item1": "Vous avez un modèle d'affaires établi et prêt pour une mise à l'échelle.",
+            "item2": "Vous privilégiez la rigueur technique à la simplicité des modèles classiques.",
+            "item3": "Vous cherchez un partenaire technique fiable sur le long terme."
+        },
+        "notForWho": {
+            "title": "Nous pourrions ne pas correspondre si :",
+            "item1": "Votre seul critère de choix est le coût le plus bas possible.",
+            "item2": "Vous avez besoin d'une présence numérique temporaire ou basique.",
+            "item3": "Vous n'êtes pas prêt à considérer votre présence en ligne comme un actif durable."
+        }
     },
     "trust": {
-        "experience": "Années d'Expérience",
-        "projects": "Projets Réalisés",
-        "clients": "Clients Satisfaits",
-        "support": "Support 24/7"
+        "experience": "Intelligence du Marché",
+        "projects": "Déploiements stratégiques",
+        "clients": "Partenaires de Succès",
+        "support": "Accompagnement Conseil"
+    },
+    "businessReality": {
+        "title": "Contraintes Structurelles",
+        "subtitle": "Éliminer les points communs d'échec technique dans l'écosystème commercial algérien.",
+        "item1": {
+            "title": "Latence Architecturale",
+            "desc": "Les plateformes construites sans profondeur d'ingénierie s'effrondrent sous le trafic, entraînant une perte immédiate de leads."
+        },
+        "item2": {
+            "title": "Volatilité Opérationnelle",
+            "desc": "La maintenance sans feuille de route logique mène à une dette technique infinie et à la stagnation des projets."
+        },
+        "item3": {
+            "title": "Inefficacité Systémique",
+            "desc": "Les outils digitaux qui ne se synchronisent pas avec la physique de votre entreprise deviennent des passifs plutôt que des actifs."
+        }
     },
     "services": {
-        "title": "Nos Services",
-        "titleStart": "Notre",
-        "titleHighlight": "Expertise",
-        "subtitle": "Tout ce dont vous avez besoin pour réussir en ligne",
-        "whyTitle": "Pourquoi Votre Entreprise a Besoin d'un Site Web Professionnel",
-        "whyDesc": "Dans le monde numérique d'aujourd'hui, votre site web est souvent la première impression que les clients ont de votre entreprise. Un site professionnel renforce la confiance, attire de nouveaux clients et vous aide à grandir.",
-        "howTitle": "Comment Nous Travaillons",
-        "howDesc": "Nous combinons une technologie IA de pointe avec l'expertise humaine pour livrer des sites web époustouflants plus rapidement et à moindre coût que les agences traditionnelles.",
-        "cta": "Commencez Aujourd'hui"
+        "title": "Systèmes de Croissance",
+        "titleStart": "Systèmes",
+        "titleHighlight": "Ingénierés",
+        "subtitle": "Infrastructure numérique à haute disponibilité conçue pour la dominance du marché. Pas seulement du code—un levier opérationnel.",
+        "whyTitle": "Votre Infrastructure : Actif ou Passif ?",
+        "whyDesc": "Dans un marché volatil, votre architecture numérique est soit un moteur évolutif de croissance, soit un point de défaillance structurel. Nous concevons le premier.",
+        "howTitle": "Cycle d'Ingénierie",
+        "howDesc": "Une intelligence de marché profonde combinée à une précision d'ingénierie de classe mondiale. Nous ne recevons pas d'ordres—nous architecturons des résultats.",
+        "cta": "Initialiser l'Audit Stratégique"
     },
     "pricing": {
-        "title": "Types de Sites & Tarifs",
-        "subtitle": "Choisissez le site parfait pour votre entreprise",
-        "startingAt": "À partir de",
-        "popular": "Le Plus Populaire",
-        "features": "Ce Qui Est Inclus",
-        "cta": "Contactez-nous",
-        "customNote": "Besoin de quelque chose de personnalisé ? Contactez-nous pour un devis sur mesure.",
+        "title": "Cadres d'Allocation de Capital",
+        "subtitle": "Niveaux d'investissement stratégiques synchronisés avec votre stade opérationnel. Pas de forfaits génériques.",
+        "startingAt": "Allocation Proposée",
+        "popular": "Palier de Croissance Vérifié",
+        "features": "Spécifications Techniques",
+        "cta": "Déployer",
+        "customNote": "Pour les exigences d'infrastructure complexes multi-phases, nous fournissons des plans d'allocation sur mesure.",
         "request": {
-            "title": "Commander ce site",
-            "subtitle": "Remplissez le formulaire et nous vous contacterons bientôt",
-            "submit": "Envoyer la demande",
-            "success": "Demande reçue avec succès !",
-            "error": "Une erreur est survenue."
+            "title": "Postuler pour une Transformation Digitale",
+            "subtitle": "Parlez-nous de vos objectifs commerciaux. Nous ne travaillons que sur les projets où nous pouvons apporter une valeur ajoutée 10x.",
+            "submit": "Soumettre la Candidature",
+            "success": "Candidature reçue. Notre stratège examinera vos objectifs.",
+            "error": "Échec de l'envoi. Veuillez réessayer."
         }
     },
     "portfolio": {
-        "title": "Nos Réalisations",
-        "subtitle": "Des sites web que nous avons créés pour des entreprises comme la vôtre",
-        "viewProject": "Voir le Projet",
-        "viewLive": "Visiter le Site",
-        "viewAllProjects": "Voir Tous les Projets",
-        "sectionBadge": "Nos Réalisations",
-        "all": "Tous",
+        "title": "Notre Expérience",
+        "subtitle": "Histoires de succès illustrant comment nous levons les contraintes techniques de nos partenaires.",
+        "viewProject": "Voir les Détails",
+        "viewLive": "Visiter la Plateforme",
+        "viewAllProjects": "Voir Plus de Projets",
+        "sectionBadge": "Registre d'Expérience",
+        "all": "Toutes les Solutions",
         "categories": {
-            "E-commerce": "E-commerce",
-            "Corporate": "Entreprise",
-            "Portfolio": "Portfolio",
-            "Landing Page": "Page d'atterrissage",
-            "WebApp": "Application Web",
-            "MobileApp": "Application Mobile",
-            "Other": "Autre"
+            "E-commerce": "Plateformes Sales-Engine",
+            "Corporate": "Identité Numérique de Prestige",
+            "Portfolio": "Crédibilité Visuelle",
+            "Landing Page": "Tunnels de Conversion",
+            "WebApp": "Systèmes d'Intelligence Business",
+            "MobileApp": "Outils Mobiles de Performance",
+            "Other": "Solutions Spécialisées"
         },
         "projectCTA": {
-            "title": "Vous démarrez un nouveau projet ?",
-            "subtitle": "Nous pouvons offrir ce niveau de qualité pour votre entreprise.",
-            "button": "Obtenir un devis"
+            "title": "Prêt pour une croissance à haut impact ?",
+            "subtitle": "Nous n'acceptons que 3 nouveaux partenaires par mois pour garantir une qualité d'élite.",
+            "button": "Vérifier la Disponibilité"
         },
         "details": {
-            "backToProjects": "Retour aux Projets",
-            "aboutProject": "À propos du Projet",
-            "challenge": "Le Défi",
-            "solution": "La Solution",
-            "keyResults": "Résultats Clés",
-            "gallery": "Galerie du Projet",
-            "projectInfo": "Informations du Projet",
-            "client": "Mon Client",
-            "industry": "Secteur",
-            "type": "Type de Projet",
-            "timeline": "Durée",
-            "technologies": "Technologies",
-            "notSpecified": "Non spécifié",
-            "keyFeatures": "Fonctionnalités Clés"
+            "backToProjects": "Retour au Log d'Impact",
+            "aboutProject": "Portée du Projet",
+            "challenge": "La Contrainte Business",
+            "solution": "Le Mouvement Stratégique",
+            "keyResults": "Impact Commercial",
+            "gallery": "Interface du Système",
+            "projectInfo": "Aperçu Stratégique",
+            "client": "Partenaire",
+            "industry": "Secteur d'Activité",
+            "type": "Type de Système",
+            "timeline": "Délai de Déploiement",
+            "technologies": "Stack Technique",
+            "notSpecified": "Propriétaire",
+            "keyFeatures": "Capacités Centrales"
         }
     },
     "testimonials": {
-        "title": "Ce Que Disent Nos Clients",
-        "subtitle": "Des retours authentiques d'entreprises réelles",
-        "badge": "Histoires de Succès"
+        "title": "Résultats Établis",
+        "subtitle": "Ce qui arrive quand des leaders font confiance à notre stratégie.",
+        "badge": "Retours Partenaires"
     },
     "contact": {
-        "title": "Contactez-Nous",
-        "subtitle": "Prêt à démarrer votre projet ? Envoyez-nous un message et nous vous répondrons dans les 24 heures.",
+        "title": "Consultation Stratégique",
+        "subtitle": "Nous sommes sélectifs dans nos partenariats. Si votre business est prêt pour une refonte majeure, parlons-nous.",
         "form": {
-            "name": "Votre Nom",
-            "email": "Adresse Email",
-            "phone": "Numéro de Téléphone",
-            "business": "Type d'Entreprise",
-            "message": "Votre Message",
-            "submit": "Envoyer le Message",
-            "sending": "Envoi en cours...",
-            "success": "Message envoyé avec succès ! Nous vous répondrons bientôt.",
-            "error": "Une erreur s'est produite. Veuillez réessayer."
+            "name": "Nom du Décideur",
+            "email": "Email Professionnel",
+            "phone": "Téléphone Direct / WhatsApp",
+            "business": "Secteur d'Activité",
+            "message": "Objectifs Business & Contraintes Actuelles",
+            "submit": "Envoyer le Brief",
+            "sending": "Traitement...",
+            "success": "Brief reçu. Nous vous contacterons sous 24 heures.",
+            "error": "Erreur lors du traitement du brief."
         },
         "info": {
-            "title": "Informations de Contact",
+            "title": "Contact Direct",
             "email": "Email",
-            "phone": "Téléphone",
-            "location": "Adresse"
+            "phone": "Stratégie WhatsApp",
+            "location": "Siège Alger"
         }
     },
     "footer": {
-        "description": "Nous créons des sites web professionnels qui aident les entreprises à se développer en ligne.",
-        "quickLinks": "Liens Rapides",
-        "contact": "Contactez-Nous",
-        "rights": "Tous droits réservés.",
+        "description": "Ingénierie de systèmes digitaux haute performance pour la domination du marché.",
+        "quickLinks": "Liens Stratégiques",
+        "contact": "Contact",
+        "rights": "Tous droits réservés. Qualité Professionnelle.",
         "email": "Email",
-        "phone": "Téléphone",
-        "location": "Adresse",
+        "phone": "WhatsApp",
+        "location": "Alger",
         "privacyPolicy": "Politique de Confidentialité",
-        "termsOfService": "Conditions d'Utilisation"
+        "termsOfService": "Conditions de Partenariat"
+    },
+    "methodology": {
+        "title": "Méthode",
+        "subtitle": "L'ingénierie est la dernière étape. Notre processus commence par une intelligence stratégique et une architecture logique.",
+        "pillars": {
+            "strategy": {
+                "title": "1. Intelligence Stratégique",
+                "desc": "Nous analysons votre marché, vos concurrents et la psychologie des utilisateurs pour identifier le mouvement le plus efficace pour votre entreprise."
+            },
+            "logic": {
+                "title": "2. Architecture Logique",
+                "desc": "Construire sans plan est un risque. Nous concevons des flux logiques haute densité avant d'écrire la moindre ligne de code."
+            },
+            "engineering": {
+                "title": "3. Ingénierie Haute Densité",
+                "desc": "Un code de classe mondiale, rapide, sécurisé et conçu pour évoluer. Nous traitons votre infrastructure comme un actif critique."
+            },
+            "scaling": {
+                "title": "4. Évolutivité Continue",
+                "desc": "Le déploiement n'est que le début. Nous fournissons l'intelligence nécessaire pour itérer, évoluer et dominer le marché."
+            }
+        }
     },
     "common": {
-        "learnMore": "En Savoir Plus",
-        "getStarted": "Commencer",
-        "viewAll": "Voir Tout",
-        "loading": "Chargement...",
+        "learnMore": "Voir la Roadmap",
+        "getStarted": "Postuler Maintenant",
+        "viewAll": "Voir les Études de Cas",
+        "loading": "Vérification des Systèmes...",
         "error": "Erreur",
         "success": "Succès",
         "back": "Retour",
         "next": "Suivant",
-        "submit": "Envoyer",
+        "submit": "Envoyer le Brief",
         "cancel": "Annuler",
         "save": "Enregistrer",
-        "delete": "Supprimer",
+        "delete": "Retirer",
         "edit": "Modifier",
-        "add": "Ajouter"
+        "add": "Déployer"
     }
 }

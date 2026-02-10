@@ -9,6 +9,8 @@ const contactSchema = z.object({
   email: z.string().email().optional().or(z.literal('')),
   phone: z.string().max(50).optional(),
   businessType: z.string().max(100).optional(),
+  budget: z.string().max(100).optional(),
+  objective: z.string().max(1000).optional(),
   message: z.string().min(1, 'Message is required').max(5000),
 })
 
@@ -41,6 +43,8 @@ export async function POST(request: NextRequest) {
         email: cleanEmail,
         phone: data.phone || null,
         businessType: data.businessType || null,
+        budget: data.budget || null,
+        objective: data.objective || null,
         message: cleanMessage,
       },
     })

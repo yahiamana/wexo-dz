@@ -181,15 +181,15 @@ export default function CategoriesPage() {
   return (
     <div className="animate-in fade-in duration-500">
       <PageHeader 
-        title="Categories" 
-        subtitle="Manage portfolio project categories."
+        title="Impact Sectors" 
+        subtitle="Define the business areas where we deliver high-revenue infrastructure."
       >
         <button 
           onClick={() => openModal()}
           className="flex items-center gap-2 px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg text-sm font-medium transition-colors shadow-lg shadow-indigo-600/20"
         >
           <Plus className="w-4 h-4" />
-          <span>Add Category</span>
+          <span>Define New Sector</span>
         </button>
       </PageHeader>
 

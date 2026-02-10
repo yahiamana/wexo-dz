@@ -2,10 +2,8 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { Check, Star } from 'lucide-react'
-import Card from '@/components/ui/Card'
+import { Check, ShieldCheck, ArrowRight, Activity } from 'lucide-react'
 import Button from '@/components/ui/Button'
-import Badge from '@/components/ui/Badge'
 import { type Locale, getLocalizedField } from '@/lib/i18n'
 import { formatPrice } from '@/lib/utils'
 
@@ -44,20 +42,19 @@ interface PricingSectionProps {
 }
 
 export default function PricingSection({ locale, translations, websiteTypes }: PricingSectionProps) {
-  // Default pricing if none from DB
   const displayTypes = websiteTypes.length > 0 ? websiteTypes : [
     {
       id: '1',
       slug: 'one-page',
-      titleEn: 'One Page Website',
-      titleFr: 'Site One Page',
-      titleAr: 'موقع صفحة واحدة',
-      descEn: 'Perfect for personal brands and small businesses',
-      descFr: 'Parfait pour les marques personnelles et petites entreprises',
-      descAr: 'مثالي للعلامات الشخصية والأعمال الصغيرة',
-      featuresEn: ['Single page design', 'Mobile responsive', 'Contact form', 'SEO optimized'],
-      featuresFr: ['Design page unique', 'Responsive mobile', 'Formulaire de contact', 'Optimisé SEO'],
-      featuresAr: ['تصميم صفحة واحدة', 'متوافق مع الجوال', 'نموذج اتصال', 'محسّن لمحركات البحث'],
+      titleEn: 'Base Infrastructure',
+      titleFr: 'Infrastructure de base',
+      titleAr: 'البنية التحتية الأساسية',
+      descEn: 'Essential digital anchor for focused operational visibility.',
+      descFr: 'Ancre numérique essentielle pour une visibilité opérationnelle ciblée.',
+      descAr: 'مرساة رقمية أساسية لرؤية تشغيلية مركزة.',
+      featuresEn: ['Surgical Design', 'Mobile Optimization', 'Logic-First SEO'],
+      featuresFr: ['Design Chirurgical', 'Optimisation Mobile', 'SEO Logique'],
+      featuresAr: ['تصميم جراحي', 'تحسين الجوال', 'سيو منطقي'],
       priceUSD: 299,
       priceEUR: 279,
       priceDZD: 45000,
@@ -66,15 +63,15 @@ export default function PricingSection({ locale, translations, websiteTypes }: P
     {
       id: '2',
       slug: 'business',
-      titleEn: 'Business Website',
-      titleFr: 'Site Entreprise',
-      titleAr: 'موقع أعمال',
-      descEn: 'Complete solution for growing businesses',
-      descFr: 'Solution complète pour les entreprises en croissance',
-      descAr: 'حل متكامل للأعمال النامية',
-      featuresEn: ['5-10 pages', 'Mobile responsive', 'Blog section', 'SEO optimized', 'Analytics'],
-      featuresFr: ['5-10 pages', 'Responsive mobile', 'Section blog', 'Optimisé SEO', 'Analytics'],
-      featuresAr: ['5-10 صفحات', 'متوافق مع الجوال', 'قسم مدونة', 'محسّن SEO', 'تحليلات'],
+      titleEn: 'Scale System',
+      titleFr: 'Système d\'échelle',
+      titleAr: 'نظام التوسع',
+      descEn: 'Full-spectrum infrastructure for high-growth commercial entities.',
+      descFr: 'Infrastructure à spectre complet pour les entités commerciales à forte croissance.',
+      descAr: 'بنية تحتية كاملة الأطياف للكيانات التجارية سريعة النمو.',
+      featuresEn: ['Advanced Data Flows', 'Behavioral Tracking', 'Authority Narrative'],
+      featuresFr: ['Flux de Données Avancés', 'Suivi Comportemental', 'Récit d\'Autorité'],
+      featuresAr: ['تدفقات بيانات متقدمة', 'تتبع سلوكي', 'سردية السلطة'],
       priceUSD: 599,
       priceEUR: 549,
       priceDZD: 90000,
@@ -83,15 +80,15 @@ export default function PricingSection({ locale, translations, websiteTypes }: P
     {
       id: '3',
       slug: 'ecommerce',
-      titleEn: 'E-commerce Website',
-      titleFr: 'Site E-commerce',
-      titleAr: 'موقع تجارة إلكترونية',
-      descEn: 'Full online store with payment integration',
-      descFr: 'Boutique en ligne complète avec paiement intégré',
-      descAr: 'متجر إلكتروني كامل مع تكامل الدفع',
-      featuresEn: ['Unlimited products', 'Shopping cart', 'Payment gateway', 'Order management', 'Inventory system'],
-      featuresFr: ['Produits illimités', 'Panier', 'Passerelle de paiement', 'Gestion commandes', 'Système inventaire'],
-      featuresAr: ['منتجات غير محدودة', 'سلة تسوق', 'بوابة دفع', 'إدارة الطلبات', 'نظام المخزون'],
+      titleEn: 'Market Engine',
+      titleFr: 'Moteur de marché',
+      titleAr: 'محرك السوق',
+      descEn: 'High-density transactional architecture for global commerce.',
+      descFr: 'Architecture transactionnelle à haute densité pour le commerce mondial.',
+      descAr: 'بنية معاملات عالية الكثافة للتجارة العالمية.',
+      featuresEn: ['PCI Compliance', 'Inventory Logic', 'Payment Synchronization'],
+      featuresFr: ['Conformité PCI', 'Logique d\'Inventaire', 'Synchronisation des Paiements'],
+      featuresAr: ['توافق PCI', 'منطق المخزون', 'تزامن الدفع'],
       priceUSD: 1299,
       priceEUR: 1199,
       priceDZD: 200000,
@@ -113,108 +110,97 @@ export default function PricingSection({ locale, translations, websiteTypes }: P
   }
   
   return (
-    <section className="py-24 bg-gradient-to-b from-gray-50 to-white dark:from-slate-950 dark:to-slate-900 transition-colors duration-300">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            {translations.pricing.title}
-          </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            {translations.pricing.subtitle}
-          </p>
-        </motion.div>
+    <section className="py-24 sm:py-32 bg-white dark:bg-slate-950 transition-colors duration-500">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between mb-20 gap-10 border-b border-slate-100 dark:border-slate-800 pb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-3xl"
+          >
+            <div className="flex items-center gap-3 mb-6">
+              <div className="h-[2px] w-10 bg-blue-600 dark:bg-blue-400" />
+              <span className="text-[10px] font-black uppercase tracking-[0.4em] text-blue-600 dark:text-blue-400">Resource Allocation</span>
+            </div>
+            <h2 className="text-4xl sm:text-7xl font-black text-slate-900 dark:text-white tracking-tighter mb-8 uppercase leading-[0.9]">
+              Capital <span className="text-blue-600 dark:text-blue-400">Allocation</span>
+            </h2>
+            <p className="text-xl text-slate-500 dark:text-slate-400 leading-relaxed font-semibold max-w-2xl">
+              Investment tiers designed for specific operational stages. No generic packages—only synchronized growth infrastructure.
+            </p>
+          </motion.div>
+
+          <Link href={`/${locale}/pricing`}>
+            <Button variant="ghost" className="p-0 text-[13px] font-black uppercase tracking-widest hover:bg-transparent group transition-all">
+              <span>View Full Breakdown</span>
+              <div className="ml-4 w-10 h-10 rounded-full border border-slate-200 dark:border-slate-800 flex items-center justify-center group-hover:bg-slate-900 dark:group-hover:bg-white group-hover:text-white dark:group-hover:text-slate-900 transition-all">
+                <ArrowRight className="w-4 h-4" />
+              </div>
+            </Button>
+          </Link>
+        </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {[...displayTypes, {
-            id: 'custom-project',
-            slug: 'custom',
-            titleEn: 'Custom Project',
-            titleFr: 'Projet Sur Mesure',
-            titleAr: 'مشروع مخصص',
-            descEn: 'For complex projects with specific requirements',
-            descFr: 'Pour les projets complexes avec des besoins spécifiques',
-            descAr: 'للمشاريع المعقدة ذات المتطلبات المحددة',
-            featuresEn: ['Custom functionality', 'Dedicated team', 'Priority support', 'Scalable architecture'],
-            featuresFr: ['Fonctionnalités sur mesure', 'Équipe dédiée', 'Support prioritaire', 'Architecture évolutive'],
-            featuresAr: ['وظائف مخصصة', 'فريق مخصص', 'دعم ذو أولوية', 'بنية قابلة للتوسع'],
-            priceUSD: 0,
-            priceEUR: 0,
-            priceDZD: 0,
-            isPopular: false,
-            isCustom: true
-          }].map((type, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+          {displayTypes.map((type, index) => (
             <motion.div
               key={type.id}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="relative"
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              className={`relative p-10 rounded-3xl border transition-all duration-500 flex flex-col h-full overflow-hidden
+                ${type.isPopular 
+                  ? 'bg-slate-900 dark:bg-white border-slate-900 dark:border-white text-white dark:text-slate-900 shadow-2xl scale-105 z-10' 
+                  : 'bg-white dark:bg-slate-900 border-slate-100 dark:border-slate-800 text-slate-900 dark:text-white hover:border-blue-500/30'}`}
             >
               {type.isPopular && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
-                  <Badge variant="info" className="flex items-center gap-1 shadow-lg">
-                    <Star className="w-3 h-3 fill-current" />
-                    {translations.pricing.popular}
-                  </Badge>
+                <div className="absolute top-0 right-0 p-8">
+                  <ShieldCheck className="w-8 h-8 text-blue-400 dark:text-blue-600" strokeWidth={1.5} />
                 </div>
               )}
               
-              <Link href={`/${locale}/pricing/${type.slug}`} className="block h-full focus:outline-none group">
-                <Card 
-                  hover 
-                  className={`h-full flex flex-col ${type.isPopular ? 'ring-2 ring-blue-500 shadow-xl' : ''}`}
+              <div className="mb-10">
+                <div className="flex items-center gap-2 mb-4">
+                   <Activity size={12} className={type.isPopular ? 'text-blue-400' : 'text-blue-600'} />
+                   <span className={`text-[10px] font-black uppercase tracking-widest ${type.isPopular ? 'text-blue-400' : 'text-blue-600'}`}>System Tier 0{index + 1}</span>
+                </div>
+                <h3 className="text-3xl font-black mb-4 uppercase tracking-tighter leading-none">
+                  {getLocalizedField(type, 'title', locale)}
+                </h3>
+                <p className={`text-sm font-semibold leading-relaxed ${type.isPopular ? 'text-slate-400 dark:text-slate-500' : 'text-slate-500 dark:text-slate-400'}`}>
+                  {getLocalizedField(type, 'desc', locale)}
+                </p>
+              </div>
+              
+              <div className="mb-10 pb-10 border-b border-slate-100/10 dark:border-slate-800/10">
+                <span className={`text-[10px] font-black uppercase tracking-widest block mb-2 ${type.isPopular ? 'text-slate-500 dark:text-slate-400' : 'text-slate-400 dark:text-slate-500'}`}>Starting Allocation</span>
+                <div className="text-4xl font-black tracking-tighter">
+                  {getPrice(type)}
+                </div>
+              </div>
+              
+              <div className="flex-1 mb-10">
+                <p className={`text-[10px] font-black uppercase tracking-widest mb-6 ${type.isPopular ? 'text-slate-500 dark:text-slate-400' : 'text-slate-400 dark:text-slate-500'}`}>Technical Specifications</p>
+                <ul className="space-y-4">
+                  {getFeatures(type).map((feature, i) => (
+                    <li key={i} className="flex items-center gap-3 text-sm font-bold">
+                      <Check className={`w-4 h-4 flex-shrink-0 ${type.isPopular ? 'text-blue-400' : 'text-blue-600'}`} />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              
+              <Link href={`/${locale}/pricing/${type.slug}`} className="block mt-auto">
+                <Button 
+                  className={`w-full py-6 px-4 rounded-xl font-black uppercase tracking-wider border transition-all text-[12px]
+                    ${type.isPopular 
+                      ? 'bg-blue-600 hover:bg-blue-700 text-white border-transparent' 
+                      : 'bg-transparent border-slate-200 dark:border-slate-800 hover:bg-slate-900 dark:hover:bg-white hover:text-white dark:hover:text-slate-900'}`}
                 >
-                  <div className="mb-6">
-                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
-                      {getLocalizedField(type, 'title', locale)}
-                    </h3>
-                    <p className="text-gray-600 dark:text-gray-400 text-sm">
-                      {getLocalizedField(type, 'desc', locale)}
-                    </p>
-                  </div>
-                  
-                  <div className="mb-6">
-                    <span className="text-sm text-gray-500 dark:text-gray-400">{translations.pricing.startingAt}</span>
-                    <div className="text-4xl font-bold text-gray-900 dark:text-white">
-                      {type.isCustom ? (
-                        <span className="text-2xl">
-                          {locale === 'ar' ? 'تواصل معنا' : locale === 'fr' ? 'Contactez-nous' : 'Contact Us'}
-                        </span>
-                      ) : getPrice(type)}
-                    </div>
-                  </div>
-                  
-                  <div className="flex-1">
-                    <p className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-4">{translations.pricing.features}</p>
-                    <ul className="space-y-3">
-                      {getFeatures(type).map((feature, i) => (
-                        <li key={i} className="flex items-start gap-2 text-gray-600 dark:text-gray-400">
-                          <Check className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                          <span>{feature}</span>
-                        </li>
-                    ))}
-                  </ul>
-                </div>
-                
-                <div className="mt-8">
-                  <div className="w-full">
-                    <Button 
-                      variant={type.isPopular ? 'primary' : 'outline'} 
-                      className="w-full group-hover:bg-blue-600 group-hover:text-white transition-colors pointer-events-none"
-                      as="span"
-                    >
-                      {translations.pricing.cta}
-                    </Button>
-                  </div>
-                </div>
-              </Card>
+                    <span className="whitespace-nowrap">{translations.pricing.cta}</span>
+                </Button>
               </Link>
             </motion.div>
           ))}

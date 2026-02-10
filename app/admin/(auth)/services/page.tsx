@@ -172,15 +172,15 @@ export default function ServicesPage() {
   return (
     <div className="animate-in fade-in duration-500">
       <PageHeader 
-        title="Services" 
-        subtitle="Manage the services you offer to clients."
+        title="Outcome Solutions" 
+        subtitle="Manage the strategic high-impact solutions you offer to partners."
       >
         <button 
           onClick={() => openModal()}
           className="flex items-center gap-2 px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg text-sm font-medium transition-colors shadow-lg shadow-indigo-600/20"
         >
           <Plus className="w-4 h-4" />
-          <span>Add Service</span>
+          <span>Define New Solution</span>
         </button>
       </PageHeader>
 
