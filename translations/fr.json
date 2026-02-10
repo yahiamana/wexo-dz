@@ -10,7 +10,15 @@
     "hero": {
         "title": "Architecturer une Infrastructure Digitale Durable",
         "subtitle": "Nous déployons des systèmes opérationnels de haute performance qui éliminent la volatilité technique pour le marché algérien.",
-        "cta": "Démarrer"
+        "cta": "Démarrer",
+        "secondaryCta": "Voir l'Expérience",
+        "availableBadge": "Disponibilité: T1 2026",
+        "mainTitleStart": "Nous concevons",
+        "mainTitleHighlight": "l'infrastructure",
+        "mainTitleEnd": "pour la stabilité.",
+        "resultsLabel": "Résultats Marché",
+        "liveStatusLabel": "Opérationnel",
+        "topNotchWork": "Exécution Rigoureuse"
     },
     "cta": {
         "readyToStart": "Prêt à passer à l'échelle ?"

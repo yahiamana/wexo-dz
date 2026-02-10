@@ -10,7 +10,15 @@
     "hero": {
         "title": "هندسة بنية تحتية رقمية مستدامة",
         "subtitle": "نحن ننشر أنظمة تشغيل عالية الأداء تقضي على التقلبات التقنية في السوق الجزائرية.",
-        "cta": "بدء"
+        "cta": "بدء",
+        "secondaryCta": "عرض التجربة",
+        "availableBadge": "التوفر: الربع الأول 2026",
+        "mainTitleStart": "نحن نصمم",
+        "mainTitleHighlight": "البنية التحتية",
+        "mainTitleEnd": "من أجل الاستقرار.",
+        "resultsLabel": "نتائج السوق",
+        "liveStatusLabel": "عملياتي",
+        "topNotchWork": "تنفيذ دقيق"
     },
     "cta": {
         "readyToStart": "هل أنت مستعد لتطوير نطاق أعمالك؟"

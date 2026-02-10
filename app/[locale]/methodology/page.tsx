@@ -3,6 +3,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { Sparkles, Zap, ShieldCheck, TrendingUp, Lightbulb, Target, Cpu, LineChart } from 'lucide-react'
+import Link from 'next/link'
 import { use } from 'react'
 import { type Locale } from '@/lib/i18n'
 import en from '@/translations/en.json'
@@ -156,12 +157,16 @@ export default function MethodologyPage({ params }: { params: Promise<{ locale: 
           </h2>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 relative z-10">
-            <button className="h-16 px-10 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-lg transition-all shadow-xl shadow-blue-600/20">
-              {t.common.getStarted}
-            </button>
-            <button className="h-16 px-10 rounded-2xl bg-white/10 hover:bg-white/20 text-white font-bold text-lg transition-all border border-white/10 backdrop-blur-md">
-              {t.hero.secondaryCta}
-            </button>
+            <Link href={`/${locale}/contact`}>
+              <button className="h-16 px-10 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-lg transition-all shadow-xl shadow-blue-600/20">
+                {t.common.getStarted}
+              </button>
+            </Link>
+            <Link href={`/${locale}/portfolio`}>
+              <button className="h-16 px-10 rounded-2xl bg-white/10 hover:bg-white/20 text-white font-bold text-lg transition-all border border-white/10 backdrop-blur-md">
+                {t.hero.secondaryCta}
+              </button>
+            </Link>
           </div>
         </div>
       </section>
